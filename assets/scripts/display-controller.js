@@ -4,6 +4,7 @@ export const DisplayController = (function () {
 
   /**
    * Sets the symbol for each cell
+   * 
    * @param {string[]} board Array of each cell value
    */
   const setBoard = (board) => {
@@ -14,6 +15,7 @@ export const DisplayController = (function () {
 
   /**
    * Sets the symbol of a cell
+   * 
    * @param {HTMLElement} cell Cell HTMLElement
    * @param {string} value Cell value
    * @returns {boolean} Returns true if the cell was set and false otherwise
