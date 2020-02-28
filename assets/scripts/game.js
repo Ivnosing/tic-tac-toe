@@ -49,7 +49,7 @@ export const initTicTacToe = () => {
 
         // If user won
         if (Gameboard.evaluateBoard()) {
-          announce((name) => `${name} wins! Click a cell to start a new game`);
+          announce((name) => `🎉 ${name} wins! Click a cell to start a new game`);
         } else if (Gameboard.tie()) {
           announce(() => 'Tie! Click a cell to start a new game');
         } else {
