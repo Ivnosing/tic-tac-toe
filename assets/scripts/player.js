@@ -1,5 +1,7 @@
 /**
  * Player function factory
+ * 
+ * @todo move symbol here
  */
 const Player = function() {
   let name = '';
