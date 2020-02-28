@@ -65,10 +65,16 @@ export const Gameboard = (function () {
     });
   }
 
+  const tie = () => {
+    const cells = getCells();
+    return cells.length === cells.filter(c => c).length;
+  }
+
   return {
     getCells,
     setCell,
     resetBoard,
-    evaluateBoard
+    evaluateBoard,
+    tie
   };
 })();
