@@ -7,5 +7,5 @@
 export const setAnnouncement = (name, message) => {
   const announcement = document.getElementById('announcement');
 
-  announcement.innerText = message ? message(name) : `${playerName} plays now`;
+  announcement.innerText = message ? message(name) : `${name} plays now`;
 }
