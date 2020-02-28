@@ -1,0 +1,40 @@
+/** Helpers */
+@import 'helpers/variables';
+
+/** Components */
+@import 'components/gameboard';
+@import 'components/player-form';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font: {
+    family: 'Roboto', Helvetica, sans-serif;
+    size: 20px;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: $dark;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.container {
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+#announcement {
+  text-align: center;
+  font-size: 1.25em;
+  font-weight: 500;
+}

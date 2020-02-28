@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+
+  <link rel="stylesheet" href="./assets/styles/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="container">
+    <h1>Tic Tac Toe</h1>
+
+    <section class="players">
+      <div class="player-form">
+        <input type="text" id="player1" name="user_name" value="" onkeyup="this.setAttribute('value', this.value);">
+        <label for="player1">Player 1</label>
+      </div>
+    
+      <div class="player-form">
+        <input type="text" id="player2" name="user_name" value="" onkeyup="this.setAttribute('value', this.value);">
+        <label for="player2">Player 2</label>
+      </div>
+    </section>
+
+    <p id="announcement">Player 1 starts!</p>
+  
+    <section id="gameboard">
+      <div class="cell" tabindex="0" aria-label="Top Left Cell"><span></span></div>
+      <div class="cell" tabindex="0" aria-label="Top Center Cell"><span></span></div>
+      <div class="cell" tabindex="0" aria-label="Top Right Cell"><span></span></div>
+      <div class="cell" tabindex="0" aria-label="Center Left Cell"><span></span></div>
+      <div class="cell" tabindex="0" aria-label="Center Center Cell"><span></span></div>
+      <div class="cell" tabindex="0" aria-label="Center Right Cell"><span></span></div>
+      <div class="cell" tabindex="0" aria-label="Bottom Left Cell"><span></span></div>
+      <div class="cell" tabindex="0" aria-label="Bottom Center Cell"><span></span></div>
+      <div class="cell" tabindex="0" aria-label="Bottom Right Cell"><span></span></div>
+    </section>
+  </main>
+  
+  <script src="./assets/scripts/app.js" type="module"></script>
+</body>
+</html>
