@@ -2,8 +2,8 @@ export const TurnController = (function () {
   let playerTurn = 1;
 
   const symbols = new Map([
-    [1, 'x'],
-    [2, 'o']
+    [1, '❌'],
+    [2, '⭕']
   ]);
 
   const getPlayerTurn = () => {
