@@ -1,11 +1,22 @@
-export const Gameboard = (function () {
-  const board = [
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', '']
-  ];
+export const Gameboard = (function (size) {
+  const board = [];
 
-  const size = board[0].length;
+  /**
+   * Resets all cell symbols
+   */
+  const resetBoard = () => {
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < size; j++) {
+        if (!board[i]) {
+          board[i] = [];
+        }
+
+        board[i][j] = '';
+      }
+    }
+  }
+
+  resetBoard();
 
   /**
    * Gets all cell symbols
@@ -37,17 +48,6 @@ export const Gameboard = (function () {
     return false;
   }
 
-  /**
-   * Resets all cell symbols
-   */
-  const resetBoard = () => {
-    for (let i = 0; i < board.length; i++) {
-      for (let j = 0; j < board[i].length; j++) {
-        board[i][j] = '';
-      }
-    }
-  }
-
   const evaluateBoard = () => {
     const rows = board;
     const columns = board.map((column, index) => board.map(row => row[index]));
@@ -77,4 +77,4 @@ export const Gameboard = (function () {
     evaluateBoard,
     tie
   };
-})();
+})(3);

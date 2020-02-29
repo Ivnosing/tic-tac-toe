@@ -14,6 +14,7 @@
     font-size: 6rem;
     user-select: none;
     overflow: hidden;
+    outline: 0;
     cursor: pointer;
 
     span {
@@ -43,6 +44,11 @@
 
     &:nth-child(9) {
       border-radius: 0 0 1rem 0;
+    }
+
+    &:focus,
+    &:active {
+      background-color: darken($light, 20);
     }
   }
 }

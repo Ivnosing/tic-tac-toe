@@ -5,6 +5,8 @@ import { TurnController } from './turn-controller.js';
 import { setAnnouncement } from './announcement.js';
 
 export const initTicTacToe = () => {
+  document.querySelectorAll('.players .player-form input').forEach(el => el.style.transition = 'all 0.2s ease-in-out 0s');
+  
   // Update name of player 1
   document.getElementById('player1').addEventListener('keyup', event => {
     player1.setName(event.target.value);
@@ -31,9 +33,19 @@ export const initTicTacToe = () => {
     setAnnouncement(name, message);
   }
 
-  // Add event listener to every cell
-  for (let i = 0; i < DisplayController.cells.length; i++) {
-    DisplayController.cells[i].addEventListener('click', function () {
+  const a11yClick = (event) => {
+    if (event.type === 'click') {
+      return true;
+    } else {
+      const code = event.charCode || event.keyCode;
+      return code === 32 || code === 13;
+    }
+  }
+
+  const cellClickLogic = (event, i) => {
+    // Check event
+    if (a11yClick(event)) {
+
       // Reset board if game is over and user clicks to start again
       if (Gameboard.evaluateBoard() || Gameboard.tie()) {
         Gameboard.resetBoard();
@@ -44,19 +56,24 @@ export const initTicTacToe = () => {
       const cellChanged = Gameboard.setCell(i, TurnController.getPlayerSymbol());
 
       if (cellChanged) {
-        // Update board with new cell
+        // Update board with cell's new value
         DisplayController.setBoard(Gameboard.getCells());
 
-        // If user won
-        if (Gameboard.evaluateBoard()) {
+        if (Gameboard.evaluateBoard()) { // If user won
           announce((name) => `🎉 ${name} wins! Click a cell to start a new game`);
-        } else if (Gameboard.tie()) {
+        } else if (Gameboard.tie()) { // If there is a tie
           announce(() => 'Tie! Click a cell to start a new game');
         } else {
           TurnController.nextTurn();
           announce();
         }
       }
-    });
+    }
+  }
+
+  // Add event listener to every cell
+  for (let i = 0; i < DisplayController.cells.length; i++) {
+    DisplayController.cells[i].addEventListener('click', (event) => cellClickLogic(event, i));
+    DisplayController.cells[i].addEventListener('keyup', (event) => cellClickLogic(event, i));
   }
 }
