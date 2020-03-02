@@ -61,8 +61,10 @@ export const initTicTacToe = () => {
 
         if (Gameboard.evaluateBoard()) { // If user won
           announce((name) => `🎉 ${name} wins! Click a cell to start a new game`);
+          TurnController.resetTurns();
         } else if (Gameboard.tie()) { // If there is a tie
           announce(() => 'Tie! Click a cell to start a new game');
+          TurnController.resetTurns();
         } else {
           TurnController.nextTurn();
           announce();

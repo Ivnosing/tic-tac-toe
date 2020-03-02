@@ -22,9 +22,14 @@ export const TurnController = (function () {
     return ++playerTurn;
   }
 
+  const resetTurns = () => {
+    playerTurn = 1;
+  }
+
   return {
     getPlayerTurn,
     getPlayerSymbol,
-    nextTurn
+    nextTurn,
+    resetTurns
   }
 })();
