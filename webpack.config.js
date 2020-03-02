@@ -2,7 +2,6 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  watch: true,
   entry: [
     './src/js/index.js',
     './src/scss/styles.scss'
@@ -16,7 +15,7 @@ module.exports = {
     rules: [
       {
         test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -25,11 +24,14 @@ module.exports = {
         }
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.scss$/,
+        exclude: /node_modules/,
         use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
+          {
+            loader: 'file-loader',
+            options: { name: '[name].min.css' }
+          },
+          'sass-loader'
         ],
       }
     ]
